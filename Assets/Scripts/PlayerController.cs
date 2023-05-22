@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -28,11 +30,20 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(playerRB.velocity);
 
-            // animator bool' u gelecek
+            animator.SetBool("isWalking", true);
         }
         else
         {
-            // animator
+            animator.SetBool("isWalking", false);
+        }
+
+        if (Input.GetKey("x"))
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
         }
     }
 }
