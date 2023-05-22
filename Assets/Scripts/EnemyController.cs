@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int enemyLevel;
+
+    PlayerController player;
+
+    private void Start()
     {
-        
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            if (player.playerLevel > enemyLevel)
+            {
+                Debug.Log("kill");
+            }
+            else
+            {
+                Debug.Log("die");
+            }
+        }
     }
+
 }

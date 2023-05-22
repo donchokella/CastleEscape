@@ -15,11 +15,15 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    public int playerLevel;
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        playerLevel = 3;
     }
 
     private void FixedUpdate()
