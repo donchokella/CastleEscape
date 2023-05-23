@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed;
-    private Animator animator;
+    public Animator animator;
 
     public int playerLevel;
     GameObject playerLvlObject;
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
-
+        /*
         if (Input.GetKey("x"))
         {
             animator.SetBool("isAttacking", true);
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("isAttacking", false);
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)

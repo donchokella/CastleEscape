@@ -37,7 +37,9 @@ public class EnemyController : MonoBehaviour
         {
             if (player.playerLevel > enemyLevel)
             {
-                Destroy(gameObject);
+                player.animator.SetBool("isAttacking", true);
+                Destroy(gameObject, 0.5f);
+
             }
             else
             {
