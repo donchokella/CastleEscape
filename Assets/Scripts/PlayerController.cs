@@ -16,11 +16,15 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     public int playerLevel;
+    GameManager gameManager;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         animator = GetComponent<Animator>();
 
         playerLevel = 3;
@@ -48,6 +52,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("isAttacking", false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("VictoryArea"))
+        {
+            gameManager.UpdateGameStates(GameManager.GameState.Victory);
         }
     }
 }

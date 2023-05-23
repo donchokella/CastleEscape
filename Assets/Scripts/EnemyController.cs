@@ -8,9 +8,14 @@ public class EnemyController : MonoBehaviour
 
     PlayerController player;
 
+    GameManager gameManager;
+
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,11 +24,12 @@ public class EnemyController : MonoBehaviour
         {
             if (player.playerLevel > enemyLevel)
             {
-                Debug.Log("kill");
+                Destroy(gameObject);
             }
             else
             {
                 Debug.Log("die");
+                gameManager.UpdateGameStates(GameManager.GameState.Lose);
             }
         }
     }
