@@ -26,6 +26,10 @@ public class EnemyController : MonoBehaviour
             tmpComponent.text = "Lv. " + enemyLevel;
         }
     }
+    private void LateUpdate()
+    {
+        tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

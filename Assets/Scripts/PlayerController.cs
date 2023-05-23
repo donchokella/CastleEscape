@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void LateUpdate()
+    {
+        tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
+    }
+
     private void FixedUpdate()
     {
         playerRB.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRB.velocity.y, joystick.Vertical * moveSpeed);
