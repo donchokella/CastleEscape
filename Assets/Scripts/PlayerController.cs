@@ -62,4 +62,9 @@ public class PlayerController : MonoBehaviour
             gameManager.UpdateGameStates(GameManager.GameState.Victory);
         }
     }
+
+    public void IncreasePlayerLevel(int upgradePower)
+    {
+        playerLevel += upgradePower;
+    }
 }

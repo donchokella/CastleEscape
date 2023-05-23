@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Book
+  m_Name: Book10
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
@@ -201,7 +201,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.5377358, g: 0.29117355, b: 0.11498748, a: 1}
     - _EmissionColor: {r: 0.066176474, g: 0.009731836, b: 0.009731836, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
