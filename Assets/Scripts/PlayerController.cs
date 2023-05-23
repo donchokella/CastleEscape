@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed;
-
     private Animator animator;
 
     public int playerLevel;
-    GameManager gameManager;
+    GameObject playerLvlObject;
+    TextMeshPro tmpComponent;
 
+    GameManager gameManager;
 
 
     // Start is called before the first frame update
@@ -28,6 +30,15 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         playerLevel = 3;
+
+        playerLvlObject = transform.Find("PlayerLevel").gameObject;
+        tmpComponent = playerLvlObject.GetComponent<TextMeshPro>();
+
+        if (tmpComponent != null)
+        {
+            tmpComponent.text = "Lv. " + playerLevel;
+        }
+
     }
 
     private void FixedUpdate()
@@ -66,5 +77,7 @@ public class PlayerController : MonoBehaviour
     public void IncreasePlayerLevel(int upgradePower)
     {
         playerLevel += upgradePower;
+
+        tmpComponent.text = "Lv. " + playerLevel;
     }
 }

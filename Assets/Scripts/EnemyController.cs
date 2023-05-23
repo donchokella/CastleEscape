@@ -6,14 +6,11 @@ using TMPro;
 public class EnemyController : MonoBehaviour
 {
     public int enemyLevel;
-
     GameObject enemyLvlObject;
     TextMeshPro tmpComponent;
 
     PlayerController player;
-
     GameManager gameManager;
-
 
     private void Start()
     {
@@ -26,7 +23,6 @@ public class EnemyController : MonoBehaviour
 
         if (tmpComponent != null)
         {
-            Debug.Log("girdi");
             tmpComponent.text = "Lv. " + enemyLevel;
         }
     }
