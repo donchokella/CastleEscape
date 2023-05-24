@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     PlayerController player;
     GameManager gameManager;
 
+    private float attackAnimTime = 0.5f;
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -37,9 +39,7 @@ public class EnemyController : MonoBehaviour
         {
             if (player.playerLevel > enemyLevel)
             {
-                player.animator.SetBool("isAttacking", true);
-                Destroy(gameObject, 0.5f);
-
+                StartCoroutine(PlayerAttack());
             }
             else
             {
@@ -47,6 +47,16 @@ public class EnemyController : MonoBehaviour
                 gameManager.UpdateGameStates(GameManager.GameState.Lose);
             }
         }
+    }
+
+    private IEnumerator PlayerAttack()
+    {
+        player.animator.SetBool("isAttacking", true);
+
+        yield return new WaitForSeconds(attackAnimTime);
+
+        player.animator.SetBool("isAttacking", false);
+        Destroy(gameObject);
     }
 
 }
