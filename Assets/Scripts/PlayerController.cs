@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     GameManager gameManager;
 
+    private List<string> keys = new List<string>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -84,5 +86,20 @@ public class PlayerController : MonoBehaviour
         playerLevel += upgradePower;
 
         tmpComponent.text = "Lv. " + playerLevel;
+    }
+
+    public void AddKey(string color)
+    {
+        keys.Add(color);
+    }
+
+    public bool HasKey(string color)
+    {
+        return keys.Contains(color);
+    }
+
+    public void RemoveKey(string color)
+    {
+        keys.Remove(color);
     }
 }
