@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
     {
         // Make the enemy level text face the camera
         tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
+        tmpComponent.transform.rotation = Quaternion.Euler(45, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)
