@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        // Find the PlayerController and GameManager component in the scene
         player = FindObjectOfType<PlayerController>();
         gameManager = FindObjectOfType<GameManager>();
 
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Make the enemy level text face the camera
         tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
     }
 }

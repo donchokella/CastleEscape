@@ -6,13 +6,11 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody playerRB;
-
     [SerializeField] private FloatingJoystick joystick;
-
     [SerializeField] private float moveSpeed;
+    
     public Animator animator;
     public float attackAnimTime = 0.5f;
-
 
     public int playerLevel;
     private GameObject playerLvlObject;
@@ -25,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        // Find the GameManager component in the scene
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         animator = GetComponent<Animator>();
@@ -41,15 +40,18 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Make the player level text face the camera
         tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
     }
 
     private void FixedUpdate()
     {
+        // Move the player based on joystick input
         playerRB.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRB.velocity.y, joystick.Vertical * moveSpeed);
 
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
+            // Rotate the player to face the movement direction
             transform.rotation = Quaternion.LookRotation(playerRB.velocity);
             animator.SetBool("isWalking", true);
         }
@@ -63,11 +65,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("VictoryArea"))
         {
+            // Update game state when the player enters the victory area
             gameManager.UpdateGameStates(GameManager.GameState.Victory);
         }
 
         if (other.CompareTag("Enemy"))
         {
+            // Check if the player level is higher than the enemy level
             EnemyController enemy = other.GetComponent<EnemyController>();
             if (playerLevel > enemy.enemyLevel)
             {
@@ -75,6 +79,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                // Player is defeated if the enemy level is equal or higher
                 Debug.Log("You are defeated");
                 gameManager.UpdateGameStates(GameManager.GameState.Lose);
             }
@@ -85,6 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         if (enemy != null)
         {
+            // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
             yield return new WaitForSeconds(attackAnimTime);
             animator.SetBool("isAttacking", false);
@@ -96,22 +102,26 @@ public class PlayerController : MonoBehaviour
 
     public void IncreasePlayerLevel(int upgradePower)
     {
+        // Increase player level and update the displayed level text
         playerLevel += upgradePower;
         tmpComponent.text = "Lv. " + playerLevel;
     }
 
     public void AddKey(string color)
     {
+        // Add a key to the player's inventory
         keys.Add(color);
     }
 
     public bool HasKey(string color)
     {
+        // Check if the player has a specific key in the inventory
         return keys.Contains(color);
     }
 
     public void RemoveKey(string color)
     {
+        // Remove a key from the player's inventory
         keys.Remove(color);
     }
 }

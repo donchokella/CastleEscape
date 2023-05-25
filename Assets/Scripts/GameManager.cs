@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameState State;
+    public GameState State; // Current game state
 
-    public GameObject startScene;
-    public GameObject victoryScene;
-    public GameObject loseScene;
-    public GameObject joystickPanel;
+    public GameObject startScene;   // Reference to the start scene GameObject
+    public GameObject victoryScene; // Reference to the victory scene GameObject
+    public GameObject loseScene;    // Reference to the lose scene GameObject
+    public GameObject joystickPanel;    // Reference to the joystick panel GameObject
 
+    // Singleton design pattern
     private void Awake()
     {
         if (instance == null)
@@ -28,12 +29,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGameStates(GameState.MainMenu);
+        UpdateGameStates(GameState.MainMenu);   // Set the initial game state to MainMenu
     }
 
     public void UpdateGameStates(GameState newState)
     {
-        State = newState;
+        State = newState;   // Update the current game state
         switch (newState)
         {
             case GameState.MainMenu:
@@ -63,40 +64,40 @@ public class GameManager : MonoBehaviour
     void PlayTurnHandler()
     {
         Debug.Log("playturn");
-        joystickPanel.SetActive(true);
-        startScene.SetActive(false);
+        joystickPanel.SetActive(true);  // Activate the joystick panel
+        startScene.SetActive(false);    // Deactivate the start scene
     }
 
     void MainMenuHandler()
     {
         Debug.Log("mainmenu");
-        joystickPanel.SetActive(false);
-        startScene.SetActive(true);
-        victoryScene.SetActive(false);
+        joystickPanel.SetActive(false); // Deactivate the joystick panel
+        startScene.SetActive(true);     // Activate the start scene
+        victoryScene.SetActive(false);  // Deactivate the victory scene
     }
 
     void VictoryHandler()
     {
-        joystickPanel.SetActive(false);
-        startScene.SetActive(false);
-        victoryScene.SetActive(true);
+        joystickPanel.SetActive(false); // Deactivate the joystick panel
+        startScene.SetActive(false);    // Deactivate the start scene
+        victoryScene.SetActive(true);   // Activate the victory scene
     }
     void LoseHandler()
     {
         Debug.Log("lose");
-        joystickPanel.SetActive(false);
-        startScene.SetActive(false);
-        victoryScene.SetActive(false);
-        loseScene.SetActive(true);
+        joystickPanel.SetActive(false); // Deactivate the joystick panel
+        startScene.SetActive(false);    // Deactivate the start scene
+        victoryScene.SetActive(false);  // Deactivate the victory scene
+        loseScene.SetActive(true);      // Activate the lose scene
     }
 
     public void RestartBtn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // Reload the current scene
     }
 
     public void StartBtn()
     {
-        UpdateGameStates(GameManager.GameState.PlayTurn);
+        UpdateGameStates(GameManager.GameState.PlayTurn);   // Transition to PlayTurn state
     }
 }
