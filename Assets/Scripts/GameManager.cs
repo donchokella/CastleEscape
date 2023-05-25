@@ -100,4 +100,19 @@ public class GameManager : MonoBehaviour
     {
         UpdateGameStates(GameManager.GameState.PlayTurn);   // Transition to PlayTurn state
     }
+
+    public void NextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("Game Over! Win!");
+        }
+    }
 }
