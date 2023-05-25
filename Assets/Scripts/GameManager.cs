@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject victoryScene; // Reference to the victory scene GameObject
     public GameObject loseScene;    // Reference to the lose scene GameObject
     public GameObject joystickPanel;    // Reference to the joystick panel GameObject
+
+    private TextMeshProUGUI tmpComponent;
 
     // Singleton design pattern
     private void Awake()
@@ -81,6 +84,8 @@ public class GameManager : MonoBehaviour
         joystickPanel.SetActive(false); // Deactivate the joystick panel
         startScene.SetActive(false);    // Deactivate the start scene
         victoryScene.SetActive(true);   // Activate the victory scene
+
+        tmpComponent = victoryScene.GetComponentInChildren<TextMeshProUGUI>();
     }
     void LoseHandler()
     {
@@ -113,6 +118,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Game Over! Win!");
+            tmpComponent.text = "Congratulations! You have completed all the levels.";
         }
     }
 }
