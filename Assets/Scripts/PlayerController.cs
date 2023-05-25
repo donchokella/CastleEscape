@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     public Animator animator;
+    public float attackAnimTime = 0.5f;
+
 
     public int playerLevel;
     private GameObject playerLvlObject;
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private GameManager gameManager;
     private List<string> keys = new List<string>();
+
+    private List<EnemyController> enemies = new List<EnemyController>();
 
     void Start()
     {
@@ -60,6 +64,33 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("VictoryArea"))
         {
             gameManager.UpdateGameStates(GameManager.GameState.Victory);
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            EnemyController enemy = other.GetComponent<EnemyController>();
+            if (playerLevel > enemy.enemyLevel)
+            {
+                StartCoroutine(AttackEnemy(enemy));
+            }
+            else
+            {
+                Debug.Log("You are defeated");
+                gameManager.UpdateGameStates(GameManager.GameState.Lose);
+            }
+        }
+    }
+
+    private IEnumerator AttackEnemy(EnemyController enemy)
+    {
+        if (enemy != null)
+        {
+            animator.SetBool("isAttacking", true);
+            yield return new WaitForSeconds(attackAnimTime);
+            animator.SetBool("isAttacking", false);
+
+            enemies.Remove(enemy);
+            Destroy(enemy.gameObject);
         }
     }
 

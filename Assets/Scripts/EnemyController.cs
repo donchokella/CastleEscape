@@ -6,7 +6,6 @@ using TMPro;
 public class EnemyController : MonoBehaviour
 {
     public int enemyLevel;
-    public float attackAnimTime = 0.5f;
 
     private GameObject enemyLvlObject;
     private TextMeshPro tmpComponent;
@@ -16,8 +15,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        player = FindObjectOfType<PlayerController>();
+        gameManager = FindObjectOfType<GameManager>();
 
         enemyLvlObject = transform.Find("EnemyLevel").gameObject;
 
@@ -28,33 +27,9 @@ public class EnemyController : MonoBehaviour
             tmpComponent.text = "Lv. " + enemyLevel;
         }
     }
+
     private void LateUpdate()
     {
         tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (player.playerLevel > enemyLevel)
-            {
-                StartCoroutine(PlayerAttack());
-            }
-            else
-            {
-                Debug.Log("die");
-                gameManager.UpdateGameStates(GameManager.GameState.Lose);
-            }
-        }
-    }
-
-    private IEnumerator PlayerAttack()
-    {
-        player.animator.SetBool("isAttacking", true);
-        yield return new WaitForSeconds(attackAnimTime);
-        player.animator.SetBool("isAttacking", false);
-
-        Destroy(gameObject);
     }
 }
