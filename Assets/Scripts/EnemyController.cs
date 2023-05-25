@@ -6,13 +6,13 @@ using TMPro;
 public class EnemyController : MonoBehaviour
 {
     public int enemyLevel;
-    GameObject enemyLvlObject;
-    TextMeshPro tmpComponent;
+    public float attackAnimTime = 0.5f;
 
-    PlayerController player;
-    GameManager gameManager;
+    private GameObject enemyLvlObject;
+    private TextMeshPro tmpComponent;
 
-    private float attackAnimTime = 0.5f;
+    private PlayerController player;
+    private GameManager gameManager;
 
     private void Start()
     {
@@ -52,11 +52,9 @@ public class EnemyController : MonoBehaviour
     private IEnumerator PlayerAttack()
     {
         player.animator.SetBool("isAttacking", true);
-
         yield return new WaitForSeconds(attackAnimTime);
-
         player.animator.SetBool("isAttacking", false);
+
         Destroy(gameObject);
     }
-
 }

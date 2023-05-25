@@ -11,7 +11,12 @@ public class Key : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
-            player.AddKey(color);
+
+            if (player != null)
+            {
+                player.AddKey(color);
+            }
+
             Destroy(gameObject);
         }
     }

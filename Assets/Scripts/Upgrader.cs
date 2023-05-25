@@ -14,13 +14,7 @@ public class Upgrader : MonoBehaviour
 
             if (playerController != null)
             {
-                Upgrader upgrader = GetComponent<Upgrader>();
-
-                if (upgrader != null)
-                {
-                    int upgradePower = upgrader.upgradePower;
-                    playerController.IncreasePlayerLevel(upgradePower);
-                }
+                playerController.IncreasePlayerLevel(upgradePower);
             }
             Destroy(gameObject);
         }

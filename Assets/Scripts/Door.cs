@@ -23,7 +23,10 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         Collider[] doorCollider = GetComponents<Collider>();
-        Destroy(doorCollider[0]);
-        Destroy(doorCollider[1]);
+
+        for (int i = 0; i < doorCollider.Length; i++)
+        {
+            Destroy(doorCollider[i]);
+        }
     }
 }

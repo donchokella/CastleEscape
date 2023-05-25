@@ -5,32 +5,25 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody playerRB;
+    [SerializeField] private Rigidbody playerRB;
 
-    [SerializeField]
-    private FloatingJoystick joystick;
+    [SerializeField] private FloatingJoystick joystick;
 
-    [SerializeField]
-    private float moveSpeed;
+    [SerializeField] private float moveSpeed;
     public Animator animator;
 
     public int playerLevel;
-    GameObject playerLvlObject;
-    TextMeshPro tmpComponent;
+    private GameObject playerLvlObject;
+    private TextMeshPro tmpComponent;
 
-    GameManager gameManager;
-
+    private GameManager gameManager;
     private List<string> keys = new List<string>();
 
-
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         animator = GetComponent<Animator>();
-
         playerLevel = 3;
 
         playerLvlObject = transform.Find("PlayerLevel").gameObject;
@@ -40,7 +33,6 @@ public class PlayerController : MonoBehaviour
         {
             tmpComponent.text = "Lv. " + playerLevel;
         }
-
     }
 
     private void LateUpdate()
@@ -55,22 +47,12 @@ public class PlayerController : MonoBehaviour
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(playerRB.velocity);
-
             animator.SetBool("isWalking", true);
         }
         else
         {
             animator.SetBool("isWalking", false);
         }
-        /*
-        if (Input.GetKey("x"))
-        {
-            animator.SetBool("isAttacking", true);
-        }
-        else
-        {
-            animator.SetBool("isAttacking", false);
-        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,7 +66,6 @@ public class PlayerController : MonoBehaviour
     public void IncreasePlayerLevel(int upgradePower)
     {
         playerLevel += upgradePower;
-
         tmpComponent.text = "Lv. " + playerLevel;
     }
 

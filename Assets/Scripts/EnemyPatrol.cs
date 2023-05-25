@@ -13,14 +13,14 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Transform>().LookAt(pointB);
+        LookAtPoint(pointB);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "pointA")
         {
-            GetComponent<Transform>().LookAt(pointB);
+            LookAtPoint(pointB);
             pathStatus = "AtoC";
         }
 
@@ -28,19 +28,29 @@ public class EnemyPatrol : MonoBehaviour
         {
             if (pathStatus == "AtoC")
             {
-                GetComponent<Transform>().LookAt(pointC);
+                LookAtPoint(pointC);
             }
             else
             {
-                GetComponent<Transform>().LookAt(pointA);
+                LookAtPoint(pointA);
             }
         }
 
         if (other.name == "pointC")
         {
             pathStatus = "CtoA";
-            GetComponent<Transform>().LookAt(pointB);
+            LookAtPoint(pointB);
         }
+        MoveForvard();
+    }
+
+    private void LookAtPoint(Transform targetPoint)
+    {
+        transform.LookAt(targetPoint);
+    }
+
+    private void MoveForvard()
+    {
         GetComponent<Rigidbody>().velocity = transform.forward * speedMultiplier;
     }
 }
