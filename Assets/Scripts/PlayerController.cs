@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody playerRB;
     [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private float moveSpeed;
-    
+
     public Animator animator;
     public float attackAnimTime = 0.5f;
 

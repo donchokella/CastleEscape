@@ -13,11 +13,16 @@ public class EnemyController : MonoBehaviour
     private PlayerController player;
     private GameManager gameManager;
 
+    public Animator animator;
+    public float attackAnimTime = 1f;
+
     private void Start()
     {
         // Find the PlayerController and GameManager component in the scene
         player = FindObjectOfType<PlayerController>();
         gameManager = FindObjectOfType<GameManager>();
+
+        animator = GetComponent<Animator>();
 
         enemyLvlObject = transform.Find("EnemyLevel").gameObject;
 
@@ -33,5 +38,13 @@ public class EnemyController : MonoBehaviour
     {
         // Make the enemy level text face the camera
         tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            animator.SetBool("isWalking", false);   // If it is not walking, it is attacking
+        }
     }
 }

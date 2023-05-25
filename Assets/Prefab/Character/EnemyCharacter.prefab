@@ -336,7 +336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36fce56f5069bb347b95a3521b4e8ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLevel: 1
+  enemyLevel: 4
+  animator: {fileID: 0}
+  attackAnimTime: 0.5
 --- !u!114 &994232901
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1394,6 +1394,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   moveSpeed: 5
   animator: {fileID: 0}
+  attackAnimTime: 0.5
   playerLevel: 0
 --- !u!1 &5846773053061208436
 GameObject:
