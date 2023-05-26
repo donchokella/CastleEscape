@@ -58,10 +58,14 @@ public class PlayerController : MonoBehaviour
             // Rotate the player to face the movement direction
             transform.rotation = Quaternion.LookRotation(playerRB.velocity);
             animator.SetBool("isWalking", true);
+
+            playerRB.constraints |= RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
             animator.SetBool("isWalking", false);
+
+            playerRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
@@ -108,7 +112,7 @@ public class PlayerController : MonoBehaviour
         {
             Kill.Play();
             enemy.DieP.Play();
-            
+
             // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
             yield return new WaitForSeconds(attackAnimTime);
