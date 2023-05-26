@@ -35,6 +35,14 @@ public class GameManager : MonoBehaviour
         UpdateGameStates(GameState.MainMenu);   // Set the initial game state to MainMenu
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
+    }
+
     public void UpdateGameStates(GameState newState)
     {
         State = newState;   // Update the current game state
@@ -120,5 +128,14 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game Over! Win!");
             tmpComponent.text = "Congratulations! You have completed all the levels.";
         }
+    }
+
+    private void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 }

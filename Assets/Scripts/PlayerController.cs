@@ -92,6 +92,9 @@ public class PlayerController : MonoBehaviour
 
                 Die.Play();
                 DieP.Play();
+
+                moveSpeed = 0;
+                // Here will be Dying Animation
             }
         }
     }
