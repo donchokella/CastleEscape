@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float attackAnimTime = 0.5f;
     public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory;
+    public ParticleSystem DieP, CollectBookP, VictoryP;
 
     public int playerLevel;
     private GameObject playerLvlObject;
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
             gameManager.UpdateGameStates(GameManager.GameState.Victory);
 
             Victory.Play();
+            VictoryP.Play();
         }
 
         if (other.CompareTag("Enemy"))
@@ -89,6 +91,7 @@ public class PlayerController : MonoBehaviour
                 gameManager.UpdateGameStates(GameManager.GameState.Lose);
 
                 Die.Play();
+                DieP.Play();
             }
         }
     }
@@ -98,6 +101,8 @@ public class PlayerController : MonoBehaviour
         if (enemy != null)
         {
             Kill.Play();
+            enemy.DieP.Play();
+            
             // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
             yield return new WaitForSeconds(attackAnimTime);
@@ -115,6 +120,7 @@ public class PlayerController : MonoBehaviour
         tmpComponent.text = "Lv. " + playerLevel;
 
         CollectBook.Play();
+        CollectBookP.Play();
     }
 
     public void AddKey(string color)

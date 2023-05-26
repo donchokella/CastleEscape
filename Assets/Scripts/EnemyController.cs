@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     public Animator animator;
     public float attackAnimTime = 1f;
+    public ParticleSystem DieP;
 
     private void Start()
     {
