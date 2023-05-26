@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject, 2);
 
                 moveSpeed = 0;
-                // Here will be Dying Animation
+                // Dying Animation will be placed here
             }
         }
     }
