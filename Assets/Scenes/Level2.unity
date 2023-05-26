@@ -450,6 +450,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 175526807}
     m_Modifications:
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99939084
+      objectReference: {fileID: 0}
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.03489949
+      objectReference: {fileID: 0}
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 994232892, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: enemyLevel
       value: 4
@@ -2341,6 +2353,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 175526807}
     m_Modifications:
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9986295
+      objectReference: {fileID: 0}
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.052335896
+      objectReference: {fileID: 0}
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 994232892, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: enemyLevel
       value: 8
@@ -4490,6 +4514,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 175526807}
     m_Modifications:
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990483
+      objectReference: {fileID: 0}
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.043619405
+      objectReference: {fileID: 0}
+    - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 994232892, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: enemyLevel
       value: 12

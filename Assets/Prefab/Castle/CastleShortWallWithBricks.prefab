@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2679334003327741243}
   - component: {fileID: 1792048179658019372}
   - component: {fileID: 3785776220777732753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 9117136953513711927}
   - component: {fileID: 5321126717827314715}
   - component: {fileID: 7126524109512453778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8412628295678112917}
   - component: {fileID: 847223820284522746}
   - component: {fileID: 875460955235959279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CastleShortWallWithBricks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 2157160017043982359}
   - component: {fileID: 4077822752951929255}
   - component: {fileID: 800819253555178140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LowerBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 7089911752949940542}
   - component: {fileID: 7216643906750929382}
   - component: {fileID: 3965450218212698324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UpperBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 5186331228639299087}
   - component: {fileID: 6190058462031111593}
   - component: {fileID: 5478053078400387435}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

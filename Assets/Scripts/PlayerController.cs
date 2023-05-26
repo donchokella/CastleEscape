@@ -93,6 +93,9 @@ public class PlayerController : MonoBehaviour
                 Die.Play();
                 DieP.Play();
 
+                gameObject.GetComponent<Collider>().enabled = false;
+                Destroy(gameObject, 2);
+
                 moveSpeed = 0;
                 // Here will be Dying Animation
             }

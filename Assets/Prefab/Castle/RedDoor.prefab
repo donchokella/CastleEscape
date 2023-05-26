@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 145566204547808716}
   - component: {fileID: 145566204547808723}
   - component: {fileID: 145566204547808722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 145566204670754112}
   - component: {fileID: 145566204670754119}
   - component: {fileID: 145566204670754118}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 145566205896548965}
   - component: {fileID: 145566205896548964}
   - component: {fileID: 145566205896548971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2395052814436081693}
   - component: {fileID: 2395052814436081694}
   - component: {fileID: 2395052814436081695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VictoryArea
   m_TagString: VictoryArea
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 2395052814912193034}
   - component: {fileID: 2395052814912193035}
   - component: {fileID: 2395052814912193076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4758083269272590221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExitGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 2395052813046516946}
   - component: {fileID: 2395052813046516945}
   - component: {fileID: 2395052813046516947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

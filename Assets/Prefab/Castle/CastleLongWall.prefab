@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7937575510399808443}
   - component: {fileID: 8608327362434276003}
   - component: {fileID: 1120668559499252090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CastleLongWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

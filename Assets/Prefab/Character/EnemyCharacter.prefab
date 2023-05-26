@@ -172,6 +172,57 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 22450239}
   m_maskType: 0
+--- !u!1 &686826882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686826883}
+  - component: {fileID: 686826884}
+  m_Layer: 0
+  m_Name: VisionCone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686826883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686826882}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8957083429414015389}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!114 &686826884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686826882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5c4876b2aa1a84d9627614e7d16b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionConeMaterial: {fileID: 2100000, guid: 392e6e77dc19afc45b5aff2df85df761, type: 2}
+  visionRange: 3
+  visionAngle: 1.5
+  visionObstructingLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  visionConeResolution: 8
 --- !u!1 &8957083429414176931
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +323,7 @@ Transform:
   - {fileID: 8957083429414026451}
   - {fileID: 22450237}
   - {fileID: 7422190479871337201}
+  - {fileID: 686826883}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -337,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36fce56f5069bb347b95a3521b4e8ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLevel: 4
+  enemyLevel: 8
   animator: {fileID: 0}
   attackAnimTime: 0.5
   DieP: {fileID: 7336034328371327683}
