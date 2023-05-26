@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
     public float attackAnimTime = 0.5f;
+    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory;
 
     public int playerLevel;
     private GameObject playerLvlObject;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         // Make the player level text face the camera
         tmpComponent.transform.LookAt(Camera.main.transform.forward + transform.position);
+        tmpComponent.transform.rotation = Quaternion.Euler(45, 0, 0);
+
     }
 
     private void FixedUpdate()
@@ -67,6 +70,8 @@ public class PlayerController : MonoBehaviour
         {
             // Update game state when the player enters the victory area
             gameManager.UpdateGameStates(GameManager.GameState.Victory);
+
+            Victory.Play();
         }
 
         if (other.CompareTag("Enemy"))
@@ -82,6 +87,8 @@ public class PlayerController : MonoBehaviour
                 // Player is defeated if the enemy level is equal or higher
                 Debug.Log("You are defeated");
                 gameManager.UpdateGameStates(GameManager.GameState.Lose);
+
+                Die.Play();
             }
         }
     }
@@ -90,6 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         if (enemy != null)
         {
+            Kill.Play();
             // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
             yield return new WaitForSeconds(attackAnimTime);
@@ -105,12 +113,16 @@ public class PlayerController : MonoBehaviour
         // Increase player level and update the displayed level text
         playerLevel += upgradePower;
         tmpComponent.text = "Lv. " + playerLevel;
+
+        CollectBook.Play();
     }
 
     public void AddKey(string color)
     {
         // Add a key to the player's inventory
         keys.Add(color);
+
+        CollectKey.Play();
     }
 
     public bool HasKey(string color)
@@ -123,5 +135,7 @@ public class PlayerController : MonoBehaviour
     {
         // Remove a key from the player's inventory
         keys.Remove(color);
+
+        UnlockedDoor.Play();
     }
 }
