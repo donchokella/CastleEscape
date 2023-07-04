@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
             if (Inventory.Instance.inventoryKeys.Contains(requiredKeyColor))
             {
                 OpenDoor();
-                // Remove the key from the inventory
+                // Remove the key from the player's inventory
                 Inventory.Instance.RemoveKey(requiredKeyColor);
             }
         }
@@ -28,7 +28,7 @@ public class Door : MonoBehaviour
         // Destroy each collider to open the door
         for (int i = 0; i < doorCollider.Length; i++)
         {
-            Destroy(doorCollider[i]);
+            doorCollider[i].enabled = false;
         }
     }
 }
