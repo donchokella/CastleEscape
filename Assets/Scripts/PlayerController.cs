@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private TextMeshPro tmpComponent;
 
     private GameManager gameManager;
-    private List<string> keys = new List<string>();
+    //private List<string> keys = new List<string>();
 
     private List<EnemyController> enemies = new List<EnemyController>();
 

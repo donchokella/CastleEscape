@@ -13,9 +13,17 @@ public class EnemyController : MonoBehaviour
     private PlayerController player;
     private GameManager gameManager;
 
-    public Animator animator;
+    private Animator animator;
+
     public float attackAnimTime = 1f;
     public ParticleSystem DieP;
+
+    public float speed = 2f;
+
+    private Transform target;
+    private int wayPointIndex = 0;
+
+    public WayPoints path;
 
     private void Start()
     {
@@ -33,6 +41,19 @@ public class EnemyController : MonoBehaviour
         {
             tmpComponent.text = "Lv. " + enemyLevel;
         }
+
+        target = path.points[0];
+    }
+
+    private void Update()
+    {
+        Vector3 dir = target.position - transform.position;
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+        if (Vector3.Distance(transform.position, target.position) <= 0.3f)
+        {
+            GetNextWayPoint();
+        }
     }
 
     private void LateUpdate()
@@ -48,5 +69,23 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("isWalking", false);   // If it is not walking, it is attacking
         }
+    }
+    int directionModifier = 1;
+    void GetNextWayPoint()
+    {
+        wayPointIndex += directionModifier;
+
+        if (wayPointIndex >= path.points.Length || wayPointIndex < 0)
+        {
+            directionModifier *= -1;
+            wayPointIndex += directionModifier;
+
+        }
+        target = path.points[wayPointIndex];
+        transform.LookAt(target);
+
+        Debug.Log("wayPointIndex " + wayPointIndex);
+        Debug.Log("WayPoints.points.Length " + path.points.Length);
+        Debug.Log("x " + directionModifier);
     }
 }
