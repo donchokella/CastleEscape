@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    public string color;    // Color of the key
+    [SerializeField] Inventory.AllKeys keyColor;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Check if the colliding object is the player
+        if (other.CompareTag("Player")) 
         {
-            PlayerController player = other.GetComponent<PlayerController>();   // Get the PlayerController component from the player
-
-            if (player != null)
-            {
-                player.AddKey(color);   // Add the key to the player's inventory
-            }
+            Inventory.Instance.AddKey(keyColor);   // Add the key to the inventory
 
             Destroy(gameObject);    // Destroy the key game object
         }

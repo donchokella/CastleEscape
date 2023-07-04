@@ -132,26 +132,4 @@ public class PlayerController : MonoBehaviour
         CollectBook.Play();
         CollectBookP.Play();
     }
-
-    public void AddKey(string color)
-    {
-        // Add a key to the player's inventory
-        keys.Add(color);
-
-        CollectKey.Play();
-    }
-
-    public bool HasKey(string color)
-    {
-        // Check if the player has a specific key in the inventory
-        return keys.Contains(color);
-    }
-
-    public void RemoveKey(string color)
-    {
-        // Remove a key from the player's inventory
-        keys.Remove(color);
-
-        UnlockedDoor.Play();
-    }
 }

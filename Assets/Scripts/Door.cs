@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public string color;
+    [SerializeField] Inventory.AllKeys requiredKeyColor;
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // Get the PlayerController component from the collided player object
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-
             // Check if the player has the corresponding key to open the door
-            if (player.HasKey(color))
+            if (Inventory.Instance.inventoryKeys.Contains(requiredKeyColor))
             {
                 OpenDoor();
-                // Remove the key from the player's inventory
-                player.RemoveKey(color);
+                // Remove the key from the inventory
+                Inventory.Instance.RemoveKey(requiredKeyColor);
             }
         }
     }
