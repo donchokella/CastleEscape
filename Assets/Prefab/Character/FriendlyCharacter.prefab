@@ -329,6 +329,16 @@ MonoBehaviour:
   joystick: {fileID: 0}
   moveSpeed: 5
   animator: {fileID: 0}
+  attackAnimTime: 0.5
+  Kill: {fileID: 0}
+  Die: {fileID: 0}
+  CollectBook: {fileID: 0}
+  CollectKey: {fileID: 0}
+  UnlockedDoor: {fileID: 0}
+  Victory: {fileID: 0}
+  DieP: {fileID: 0}
+  CollectBookP: {fileID: 0}
+  VictoryP: {fileID: 0}
   playerLevel: 0
 --- !u!1 &131548
 GameObject:

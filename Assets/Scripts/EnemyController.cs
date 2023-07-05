@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     private TextMeshPro tmpComponent;
 
     private PlayerController player;
-    private GameManager gameManager;
+    //private GameManager gameManager;
 
     private Animator animator;
 
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     {
         // Find the PlayerController and GameManager component in the scene
         player = FindObjectOfType<PlayerController>();
-        gameManager = FindObjectOfType<GameManager>();
+        //gameManager = FindObjectOfType<GameManager>();
 
         animator = GetComponent<Animator>();
 
@@ -70,6 +70,7 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("isWalking", false);   // If it is not walking, it is attacking
         }
     }
+
     int directionModifier = 1;
     void GetNextWayPoint()
     {
@@ -79,13 +80,9 @@ public class EnemyController : MonoBehaviour
         {
             directionModifier *= -1;
             wayPointIndex += directionModifier;
-
         }
+
         target = path.points[wayPointIndex];
         transform.LookAt(target);
-
-        Debug.Log("wayPointIndex " + wayPointIndex);
-        Debug.Log("WayPoints.points.Length " + path.points.Length);
-        Debug.Log("x " + directionModifier);
     }
 }
