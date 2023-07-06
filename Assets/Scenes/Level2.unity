@@ -393,15 +393,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99939084
+      value: 0.99997914
       objectReference: {fileID: 0}
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03489949
+      value: 0.006457672
       objectReference: {fileID: 0}
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 4
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 994232892, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: path
@@ -2155,6 +2155,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139189167}
   m_CullTransparentMesh: 1
+--- !u!114 &1206492337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5846773053774862674, guid: 15e6dd9d5fd0fd14d8075418a876fbed, type: 3}
+  m_PrefabInstance: {fileID: 5846773053567707559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b70a281484d8443be53c0e4cef04a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1261492593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2230,15 +2241,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9986295
+      value: 0.99997914
       objectReference: {fileID: 0}
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.052335896
+      value: 0.006457672
       objectReference: {fileID: 0}
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 6
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 994232892, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: path
@@ -2282,23 +2293,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957083429414015389, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7064311
       objectReference: {fileID: 0}
     - target: {fileID: 8957083429414015389, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.030905215
       objectReference: {fileID: 0}
     - target: {fileID: 8957083429414015389, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0.7064311
       objectReference: {fileID: 0}
     - target: {fileID: 8957083429414015389, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.030905215
       objectReference: {fileID: 0}
     - target: {fileID: 8957083429414015389, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -5.01
       objectReference: {fileID: 0}
     - target: {fileID: 8957083429414015389, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3207,6 +3218,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219456, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219456, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
 --- !u!4 &1534073901 stripped
@@ -3296,11 +3323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecc20f19e123a442952838eb55d700e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   startScene: {fileID: 1773968494}
   victoryScene: {fileID: 1870919500}
   loseScene: {fileID: 575669864}
   joystickPanel: {fileID: 1671657995}
+  playerController: {fileID: 1206492337}
 --- !u!4 &1615397744
 Transform:
   m_ObjectHideFlags: 0
@@ -4652,15 +4679,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9990483
+      value: 0.99997914
       objectReference: {fileID: 0}
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.043619405
+      value: 0.006457672
       objectReference: {fileID: 0}
     - target: {fileID: 686826883, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 5
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 994232892, guid: 71ca10eacdb5cef4eaace530fd9b71ad, type: 3}
       propertyPath: path

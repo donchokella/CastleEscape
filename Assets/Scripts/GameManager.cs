@@ -72,16 +72,13 @@ public class GameManager : MonoBehaviour
     void MainMenuHandler()
     {
         Debug.Log("mainmenu");
-        joystickPanel.SetActive(false); // Deactivate the joystick panel
         startScene.SetActive(true);     // Activate the start scene
-        victoryScene.SetActive(false);  // Deactivate the victory scene
     }
 
     void VictoryHandler()
     {
         Debug.Log("victory");
         joystickPanel.SetActive(false); // Deactivate the joystick panel
-        startScene.SetActive(false);    // Deactivate the start scene
         victoryScene.SetActive(true);   // Activate the victory scene
 
         tmpComponent = victoryScene.GetComponentInChildren<TextMeshProUGUI>();
@@ -90,8 +87,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("lose");
         joystickPanel.SetActive(false); // Deactivate the joystick panel
-        startScene.SetActive(false);    // Deactivate the start scene
-        victoryScene.SetActive(false);  // Deactivate the victory scene
         loseScene.SetActive(true);      // Activate the lose scene
     }
 

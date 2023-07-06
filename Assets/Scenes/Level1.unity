@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075835816845568416, guid: be6055398d16a314895f2e14587f7490, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.98
+      value: 4.72
       objectReference: {fileID: 0}
     - target: {fileID: 6075835816845568416, guid: be6055398d16a314895f2e14587f7490, type: 3}
       propertyPath: m_LocalPosition.y
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075835816845568416, guid: be6055398d16a314895f2e14587f7490, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.76
+      value: 14.52
       objectReference: {fileID: 0}
     - target: {fileID: 6075835816845568416, guid: be6055398d16a314895f2e14587f7490, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3221,8 +3221,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219456, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219456, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+--- !u!114 &1557249460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5846773053774862674, guid: 15e6dd9d5fd0fd14d8075418a876fbed, type: 3}
+  m_PrefabInstance: {fileID: 5846773053567707559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b70a281484d8443be53c0e4cef04a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1605531287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,11 +3298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecc20f19e123a442952838eb55d700e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
   startScene: {fileID: 1773968494}
   victoryScene: {fileID: 1870919500}
   loseScene: {fileID: 575669864}
   joystickPanel: {fileID: 1671657995}
+  playerController: {fileID: 1557249460}
 --- !u!4 &1615397744
 Transform:
   m_ObjectHideFlags: 0

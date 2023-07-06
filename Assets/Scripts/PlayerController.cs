@@ -11,14 +11,11 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
     public float attackAnimTime = 0.5f;
-    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory;
-    public ParticleSystem DieP, CollectBookP, VictoryP;
+    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; // Observer
+    public ParticleSystem DieP, CollectBookP, VictoryP; // Observer
 
     public int playerLevel;
     private TextMeshPro tmpComponent;
-
-    private List<EnemyController> enemies = new List<EnemyController>();
-
 
     public event System.Action OnVictory;
     public event System.Action OnLose;
@@ -72,8 +69,8 @@ public class PlayerController : MonoBehaviour
             // Update game state when the player enters the victory area
             OnVictory?.Invoke();
 
-            Victory.Play();
-            VictoryP.Play();
+            Victory.Play(); // Observer
+            VictoryP.Play(); // Observer
         }
 
         if (other.CompareTag("Enemy"))
@@ -90,8 +87,8 @@ public class PlayerController : MonoBehaviour
                 OnLose?.Invoke();
 
 
-                Die.Play();
-                DieP.Play();
+                Die.Play(); // Observer
+                DieP.Play(); // Observer
 
                 gameObject.GetComponent<Collider>().enabled = false;
                 Destroy(gameObject, 2);
@@ -106,15 +103,14 @@ public class PlayerController : MonoBehaviour
     {
         if (enemy != null)
         {
-            Kill.Play();
-            enemy.DieP.Play();
+            Kill.Play(); // Observer?
+            enemy.DieP.Play(); // Observer?
 
             // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
             yield return new WaitForSeconds(attackAnimTime);
             animator.SetBool("isAttacking", false);
 
-            enemies.Remove(enemy);
             Destroy(enemy.gameObject);
         }
     }
@@ -125,7 +121,7 @@ public class PlayerController : MonoBehaviour
         playerLevel += upgradePower;
         tmpComponent.text = "Lv. " + playerLevel;
 
-        CollectBook.Play();
+        CollectBook.Play(); // Observer?
         CollectBookP.Play();
     }
 }
