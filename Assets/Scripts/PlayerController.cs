@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
 
     private List<EnemyController> enemies = new List<EnemyController>();
 
+
+    public event System.Action OnVictory;
+    public event System.Action OnLose;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -66,7 +70,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("VictoryArea"))
         {
             // Update game state when the player enters the victory area
-            GameManager.instance.UpdateGameStates(GameManager.GameState.Victory);
+            OnVictory?.Invoke();
 
             Victory.Play();
             VictoryP.Play();
@@ -83,8 +87,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 // Player is defeated if the enemy level is equal or higher
-                Debug.Log("You are defeated");
-                GameManager.instance.UpdateGameStates(GameManager.GameState.Lose);
+                OnLose?.Invoke();
+
 
                 Die.Play();
                 DieP.Play();

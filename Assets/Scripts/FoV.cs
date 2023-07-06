@@ -16,6 +16,8 @@ public class FoV : MonoBehaviour
     private float[] sineValues;
     private float[] cosineValues;
 
+    public event System.Action OnLose;
+
     private void Start()
     {
         meshFilter = gameObject.AddComponent<MeshFilter>();
@@ -71,7 +73,7 @@ public class FoV : MonoBehaviour
 
                     if (playerLevel <= enemyLevel)
                     {
-                        GameManager.instance.UpdateGameStates(GameManager.GameState.Lose);
+                        OnLose?.Invoke(); // this is not active now
 
                         hit.collider.GetComponent<PlayerController>().Die.Play();
                         hit.collider.GetComponent<PlayerController>().DieP.Play();

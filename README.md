@@ -2,7 +2,7 @@
 This is my interpretation on the Funrado case study.
 
 
-Due to insufficient memory on my computer, I have chosen to continue with Unity 2021.3.16f1 instead of Unity 2021.3.6f. I hope there won't be any compatibility issues.
+Unity 2021.3.16f1
 
 I have left a note in line 104 of the PlayerController script stating "Dying Animation will be placed here" as I couldn't find the Dying Animation.
 

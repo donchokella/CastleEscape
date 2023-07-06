@@ -8,7 +8,6 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameState State; // Current game state
 
     public GameObject startScene;   // Reference to the start scene GameObject
     public GameObject victoryScene; // Reference to the victory scene GameObject
@@ -16,6 +15,10 @@ public class GameManager : MonoBehaviour
     public GameObject joystickPanel;    // Reference to the joystick panel GameObject
 
     private TextMeshProUGUI tmpComponent;
+
+    public PlayerController playerController;
+    public event System.Action OnMainMenu;
+    public event System.Action OnPlayTurn;
 
     // Singleton design pattern
     private void Awake()
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGameStates(GameState.MainMenu);   // Set the initial game state to MainMenu
+        OnMainMenu?.Invoke();
     }
 
     private void Update()
@@ -43,33 +46,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateGameStates(GameState newState)
+    private void OnEnable()
     {
-        State = newState;   // Update the current game state
-        switch (newState)
-        {
-            case GameState.MainMenu:
-                MainMenuHandler();
-                break;
-            case GameState.PlayTurn:
-                PlayTurnHandler();
-                break;
-            case GameState.Victory:
-                VictoryHandler();
-                break;
-            case GameState.Lose:
-                LoseHandler();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
-        }
+        playerController.OnVictory += VictoryHandler;
+        playerController.OnLose += LoseHandler;
+        OnMainMenu += MainMenuHandler;
+        OnPlayTurn += PlayTurnHandler;
     }
-    public enum GameState
+
+    private void OnDisable()
     {
-        MainMenu,
-        PlayTurn,
-        Victory,
-        Lose
+        playerController.OnVictory -= VictoryHandler;
+        playerController.OnLose += LoseHandler;
+        OnMainMenu -= MainMenuHandler;
+        OnPlayTurn -= PlayTurnHandler;
     }
 
     void PlayTurnHandler()
@@ -89,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     void VictoryHandler()
     {
+        Debug.Log("victory");
         joystickPanel.SetActive(false); // Deactivate the joystick panel
         startScene.SetActive(false);    // Deactivate the start scene
         victoryScene.SetActive(true);   // Activate the victory scene
@@ -111,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void StartBtn()
     {
-        UpdateGameStates(GameManager.GameState.PlayTurn);   // Transition to PlayTurn state
+        OnPlayTurn?.Invoke();   // Transition to PlayTurn state
     }
 
     public void NextScene()
