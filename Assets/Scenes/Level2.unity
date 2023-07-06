@@ -5048,6 +5048,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5846773053774862674, guid: 15e6dd9d5fd0fd14d8075418a876fbed, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1615397743}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15e6dd9d5fd0fd14d8075418a876fbed, type: 3}
 --- !u!1001 &6262747216339467925

@@ -6,36 +6,21 @@ using TMPro;
 public class EnemyController : MonoBehaviour
 {
     public int enemyLevel;
-
-    private GameObject enemyLvlObject;
-    private TextMeshPro tmpComponent;
-
-    private PlayerController player;
-    //private GameManager gameManager;
-
-    private Animator animator;
-
     public float attackAnimTime = 1f;
     public ParticleSystem DieP;
-
     public float speed = 2f;
+    public WayPoints path;
 
+    private TextMeshPro tmpComponent;
+    private Animator animator;
     private Transform target;
     private int wayPointIndex = 0;
 
-    public WayPoints path;
 
     private void Start()
     {
-        // Find the PlayerController and GameManager component in the scene
-        player = FindObjectOfType<PlayerController>();
-        //gameManager = FindObjectOfType<GameManager>();
-
         animator = GetComponent<Animator>();
-
-        enemyLvlObject = transform.Find("EnemyLevel").gameObject;
-
-        tmpComponent = enemyLvlObject.GetComponent<TextMeshPro>();
+        tmpComponent = GetComponentInChildren<TextMeshPro>();
 
         if (tmpComponent != null)
         {

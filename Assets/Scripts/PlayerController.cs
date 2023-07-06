@@ -15,24 +15,16 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem DieP, CollectBookP, VictoryP;
 
     public int playerLevel;
-    private GameObject playerLvlObject;
     private TextMeshPro tmpComponent;
-
-    private GameManager gameManager;
-    //private List<string> keys = new List<string>();
 
     private List<EnemyController> enemies = new List<EnemyController>();
 
     void Start()
     {
-        // Find the GameManager component in the scene
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         animator = GetComponent<Animator>();
         playerLevel = 3;
 
-        playerLvlObject = transform.Find("PlayerLevel").gameObject;
-        tmpComponent = playerLvlObject.GetComponent<TextMeshPro>();
+        tmpComponent = GetComponentInChildren<TextMeshPro>();
 
         if (tmpComponent != null)
         {
@@ -74,7 +66,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("VictoryArea"))
         {
             // Update game state when the player enters the victory area
-            gameManager.UpdateGameStates(GameManager.GameState.Victory);
+            GameManager.instance.UpdateGameStates(GameManager.GameState.Victory);
 
             Victory.Play();
             VictoryP.Play();
@@ -92,7 +84,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Player is defeated if the enemy level is equal or higher
                 Debug.Log("You are defeated");
-                gameManager.UpdateGameStates(GameManager.GameState.Lose);
+                GameManager.instance.UpdateGameStates(GameManager.GameState.Lose);
 
                 Die.Play();
                 DieP.Play();

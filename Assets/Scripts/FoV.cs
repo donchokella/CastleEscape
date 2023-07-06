@@ -16,12 +16,8 @@ public class FoV : MonoBehaviour
     private float[] sineValues;
     private float[] cosineValues;
 
-    private GameManager gameManager;
-
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         meshFilter = gameObject.AddComponent<MeshFilter>();
         MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
         meshRenderer.material = visionConeMaterial;
@@ -75,7 +71,7 @@ public class FoV : MonoBehaviour
 
                     if (playerLevel <= enemyLevel)
                     {
-                        gameManager.UpdateGameStates(GameManager.GameState.Lose);
+                        GameManager.instance.UpdateGameStates(GameManager.GameState.Lose);
 
                         hit.collider.GetComponent<PlayerController>().Die.Play();
                         hit.collider.GetComponent<PlayerController>().DieP.Play();
