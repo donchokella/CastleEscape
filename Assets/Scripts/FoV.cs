@@ -74,10 +74,11 @@ public class FoV : MonoBehaviour
                     {
                         OnLose?.Invoke(); // this is not active now
 
-                        hit.collider.GetComponent<PlayerController>().Die.Play(); // Observer?
-                        hit.collider.GetComponent<PlayerController>().DieP.Play(); // Observer?
-                        hit.collider.gameObject.GetComponent<Collider>().enabled = false; // Observer?
-                        Destroy(hit.collider.gameObject, 2f); // Observer?
+                        // Observer ???
+                        hit.collider.GetComponent<PlayerController>().Die.Play(); 
+                        hit.collider.GetComponent<PlayerController>().DieP.Play();
+                        hit.collider.gameObject.GetComponent<Collider>().enabled = false;
+                        Destroy(hit.collider.gameObject, 2f);
                     }
                 }
             }

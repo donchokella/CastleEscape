@@ -7,10 +7,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject startScene;   // Reference to the start scene GameObject
-    [SerializeField] private GameObject victoryScene; // Reference to the victory scene GameObject
-    [SerializeField] private GameObject loseScene;    // Reference to the lose scene GameObject
-    [SerializeField] private GameObject joystickPanel;    // Reference to the joystick panel GameObject
+    [SerializeField] private GameObject startScene;
+    [SerializeField] private GameObject victoryScene;
+    [SerializeField] private GameObject loseScene;
+    [SerializeField] private GameObject joystickPanel;
     [SerializeField] private PlayerController playerController;
 
     private TextMeshProUGUI tmpComponent;
@@ -65,34 +65,34 @@ public class GameManager : MonoBehaviour
     private void PlayTurnHandler()
     {
         Debug.Log("playturn");
-        joystickPanel.SetActive(true);  // Activate the joystick panel
-        startScene.SetActive(false);    // Deactivate the start scene
+        joystickPanel.SetActive(true);
+        startScene.SetActive(false);
     }
 
     private void MainMenuHandler()
     {
         Debug.Log("mainmenu");
-        startScene.SetActive(true);     // Activate the start scene
+        startScene.SetActive(true);
     }
 
     private void VictoryHandler()
     {
         Debug.Log("victory");
-        joystickPanel.SetActive(false); // Deactivate the joystick panel
-        victoryScene.SetActive(true);   // Activate the victory scene
+        joystickPanel.SetActive(false);
+        victoryScene.SetActive(true);
 
         tmpComponent = victoryScene.GetComponentInChildren<TextMeshProUGUI>();
     }
     private void LoseHandler()
     {
         Debug.Log("lose");
-        joystickPanel.SetActive(false); // Deactivate the joystick panel
-        loseScene.SetActive(true);      // Activate the lose scene
+        joystickPanel.SetActive(false);
+        loseScene.SetActive(true);
     }
 
     private void RestartBtn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void StartBtn()

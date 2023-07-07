@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public int playerLevel { get; private set; }
 
-    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; // Observer  ???
-    public ParticleSystem DieP, CollectBookP, VictoryP; // Observer ???
+    // Observer  ???
+    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; 
+    public ParticleSystem DieP, CollectBookP, VictoryP;
 
     public event System.Action OnVictory;
     public event System.Action OnLose;
@@ -72,14 +73,15 @@ public class PlayerController : MonoBehaviour
         {
             // Update game state when the player enters the victory area
             OnVictory?.Invoke();
-
-            Victory.Play(); // Observer
-            VictoryP.Play(); // Observer
+            
+            // Observer ???
+            Victory.Play(); 
+            VictoryP.Play();
         }
 
         if (other.CompareTag("Enemy"))
         {
-            // Check if the player level is higher than the enemy level
+            
             EnemyController enemy = other.GetComponent<EnemyController>();
             if (playerLevel > enemy.enemyLevel)
             {
@@ -90,9 +92,9 @@ public class PlayerController : MonoBehaviour
                 // Player is defeated if the enemy level is equal or higher
                 OnLose?.Invoke();
 
-
-                Die.Play(); // Observer
-                DieP.Play(); // Observer
+                // Observer ???
+                Die.Play();
+                DieP.Play();
 
                 gameObject.GetComponent<Collider>().enabled = false;
                 Destroy(gameObject, 2);
@@ -107,8 +109,9 @@ public class PlayerController : MonoBehaviour
     {
         if (enemy != null)
         {
-            Kill.Play(); // Observer?
-            enemy.DieP.Play(); // Observer?
+            // Observer ???
+            Kill.Play();
+            enemy.DieP.Play();
 
             // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
@@ -125,7 +128,8 @@ public class PlayerController : MonoBehaviour
         playerLevel += upgradePower;
         tmpComponent.text = "Lv. " + playerLevel;
 
-        CollectBook.Play(); // Observer?
+        // Observer ???
+        CollectBook.Play();
         CollectBookP.Play();
     }
 }

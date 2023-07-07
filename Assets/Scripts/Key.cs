@@ -8,11 +8,11 @@ public class Key : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
             Inventory.Instance.AddKey(keyColor);   // Add the key to the inventory
 
-            Destroy(gameObject);    // Destroy the key game object
+            Destroy(gameObject);
         }
     }
 }

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Upgrader : MonoBehaviour
 {
-    [SerializeField] private int upgradePower;    // Power of the upgrade
+    [SerializeField] private int upgradePower;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))     // Check if the colliding object is the player
+        if (other.CompareTag("Player"))
         {
-            PlayerController playerController = other.GetComponent<PlayerController>();     // Get the PlayerController component from the player
+            PlayerController playerController = other.GetComponent<PlayerController>();
 
             if (playerController != null)
             {
-                playerController.IncreasePlayerLevel(upgradePower); // Increase the player's level with the specified upgrade power
+                playerController.IncreasePlayerLevel(upgradePower);
             }
-            Destroy(gameObject);    // Destroy the upgrader game object
+            Destroy(gameObject);
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance;
-    public List<AllKeys> inventoryKeys = new List<AllKeys>();
+    public static Inventory Instance; // ???
+    public List<AllKeys> inventoryKeys = new List<AllKeys>(); // ???
 
     private void Awake()
     {
