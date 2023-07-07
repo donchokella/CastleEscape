@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private int wayPointIndex = 0;
 
     public int enemyLevel;
-    public ParticleSystem DieP;
+    
     //public float attackAnimTime = 1f;
 
     private void Start()

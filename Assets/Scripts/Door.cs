@@ -30,5 +30,7 @@ public class Door : MonoBehaviour
         {
             doorCollider[i].enabled = false;
         }
+
+        GameManager.instance.GetComponent<EffectManagar>().UnlockedDoorEffect();
     }
 }

@@ -15,15 +15,15 @@ public class PlayerController : MonoBehaviour
 
     public int playerLevel { get; private set; }
 
-    // Observer  ???
-    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; 
-    public ParticleSystem DieP, CollectBookP, VictoryP;
-
     public event System.Action OnVictory;
     public event System.Action OnLose;
 
+    private EffectManagar effectManagar;
+
     void Start()
     {
+        effectManagar = GameManager.instance.GetComponent<EffectManagar>();
+
         animator = GetComponent<Animator>();
         playerLevel = 3;
 
@@ -73,10 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             // Update game state when the player enters the victory area
             OnVictory?.Invoke();
-            
-            // Observer ???
-            Victory.Play(); 
-            VictoryP.Play();
         }
 
         if (other.CompareTag("Enemy"))
@@ -92,10 +88,6 @@ public class PlayerController : MonoBehaviour
                 // Player is defeated if the enemy level is equal or higher
                 OnLose?.Invoke();
 
-                // Observer ???
-                Die.Play();
-                DieP.Play();
-
                 gameObject.GetComponent<Collider>().enabled = false;
                 Destroy(gameObject, 2);
 
@@ -110,8 +102,8 @@ public class PlayerController : MonoBehaviour
         if (enemy != null)
         {
             // Observer ???
-            Kill.Play();
-            enemy.DieP.Play();
+            effectManagar.KillEffect();    
+            //enemy.DieP.Play();
 
             // Perform attack animation and destroy the enemy after a delay
             animator.SetBool("isAttacking", true);
@@ -129,7 +121,7 @@ public class PlayerController : MonoBehaviour
         tmpComponent.text = "Lv. " + playerLevel;
 
         // Observer ???
-        CollectBook.Play();
-        CollectBookP.Play();
+        effectManagar.CollectBookEffect();
+        
     }
 }

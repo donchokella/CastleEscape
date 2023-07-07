@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public event System.Action OnPlayTurn;
 
     public static GameManager instance;
+    
+    private EffectManagar effectManagar;
 
     // Singleton design pattern
     private void Awake()
@@ -35,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        effectManagar = GetComponent<EffectManagar>();
+
         OnMainMenu?.Invoke();
     }
 
@@ -82,12 +86,16 @@ public class GameManager : MonoBehaviour
         victoryScene.SetActive(true);
 
         tmpComponent = victoryScene.GetComponentInChildren<TextMeshProUGUI>();
+
+        effectManagar.VictoryEffect();
     }
     private void LoseHandler()
     {
         Debug.Log("lose");
         joystickPanel.SetActive(false);
         loseScene.SetActive(true);
+
+        effectManagar.DieEffect();
     }
 
     private void RestartBtn()

@@ -11,6 +11,7 @@ public class Key : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Inventory.Instance.AddKey(keyColor);   // Add the key to the inventory
+            GameManager.instance.GetComponent<EffectManagar>().CollectKeyEffect();
 
             Destroy(gameObject);
         }

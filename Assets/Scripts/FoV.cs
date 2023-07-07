@@ -15,7 +15,7 @@ public class FoV : MonoBehaviour
     private float[] sineValues;
     private float[] cosineValues;
 
-    public event System.Action OnLose; // ???
+    public event System.Action OnLose; // ???  this is not active now
 
     private void Start()
     {
@@ -75,8 +75,8 @@ public class FoV : MonoBehaviour
                         OnLose?.Invoke(); // this is not active now
 
                         // Observer ???
-                        hit.collider.GetComponent<PlayerController>().Die.Play(); 
-                        hit.collider.GetComponent<PlayerController>().DieP.Play();
+                        GameManager.instance.GetComponent<EffectManagar>().DieEffect();
+
                         hit.collider.gameObject.GetComponent<Collider>().enabled = false;
                         Destroy(hit.collider.gameObject, 2f);
                     }
