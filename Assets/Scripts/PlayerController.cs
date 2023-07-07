@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private TextMeshPro tmpComponent;
     private float attackAnimTime = 0.5f;
 
-    public int playerLevel {get; private set;}
+    public int playerLevel { get; private set; }
 
     public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; // Observer  ???
     public ParticleSystem DieP, CollectBookP, VictoryP; // Observer ???
@@ -50,7 +50,10 @@ public class PlayerController : MonoBehaviour
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             // Rotate the player to face the movement direction
-            transform.rotation = Quaternion.LookRotation(playerRB.velocity);
+            if (playerRB.velocity != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(playerRB.velocity);
+            }
             animator.SetBool("isWalking", true);
 
             playerRB.constraints |= RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;

@@ -1748,10 +1748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3d752ed143d743a42e7ecc96a5608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1861643392}
-  - {fileID: 1628694981}
-  - {fileID: 953735122}
 --- !u!1 &1139189167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,10 +3625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3d752ed143d743a42e7ecc96a5608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1627050137}
-  - {fileID: 517560143}
-  - {fileID: 1623290585}
 --- !u!4 &1665471474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6075835816845568416, guid: be6055398d16a314895f2e14587f7490, type: 3}
