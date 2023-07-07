@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Upgrader : MonoBehaviour
 {
-    public int upgradePower;    // Power of the upgrade
+    [SerializeField] private int upgradePower;    // Power of the upgrade
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))     // Check if the colliding object is the player

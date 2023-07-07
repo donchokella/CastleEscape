@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class FoV : MonoBehaviour
 {
-    public Material visionConeMaterial;
-    public float visionRange;
-    public float visionAngle;
-    public LayerMask visionObstructingLayer;
-    public int visionConeResolution = 120;
+    [SerializeField] private Material visionConeMaterial;
+    [SerializeField] private float visionRange;
+    [SerializeField] private float visionAngle;
+    [SerializeField] private LayerMask visionObstructingLayer;
+    [SerializeField] private int visionConeResolution = 120;
 
     private MeshFilter meshFilter;
     private Mesh visionConeMesh;
-
     private Vector3[] vertices;
     private int[] triangles;
     private float[] sineValues;
     private float[] cosineValues;
 
-    public event System.Action OnLose;
+    public event System.Action OnLose; // ???
 
     private void Start()
     {

@@ -7,18 +7,18 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-
-    public GameObject startScene;   // Reference to the start scene GameObject
-    public GameObject victoryScene; // Reference to the victory scene GameObject
-    public GameObject loseScene;    // Reference to the lose scene GameObject
-    public GameObject joystickPanel;    // Reference to the joystick panel GameObject
+    [SerializeField] private GameObject startScene;   // Reference to the start scene GameObject
+    [SerializeField] private GameObject victoryScene; // Reference to the victory scene GameObject
+    [SerializeField] private GameObject loseScene;    // Reference to the lose scene GameObject
+    [SerializeField] private GameObject joystickPanel;    // Reference to the joystick panel GameObject
+    [SerializeField] private PlayerController playerController;
 
     private TextMeshProUGUI tmpComponent;
 
-    public PlayerController playerController;
     public event System.Action OnMainMenu;
     public event System.Action OnPlayTurn;
+
+    public static GameManager instance;
 
     // Singleton design pattern
     private void Awake()
@@ -62,20 +62,20 @@ public class GameManager : MonoBehaviour
         OnPlayTurn -= PlayTurnHandler;
     }
 
-    void PlayTurnHandler()
+    private void PlayTurnHandler()
     {
         Debug.Log("playturn");
         joystickPanel.SetActive(true);  // Activate the joystick panel
         startScene.SetActive(false);    // Deactivate the start scene
     }
 
-    void MainMenuHandler()
+    private void MainMenuHandler()
     {
         Debug.Log("mainmenu");
         startScene.SetActive(true);     // Activate the start scene
     }
 
-    void VictoryHandler()
+    private void VictoryHandler()
     {
         Debug.Log("victory");
         joystickPanel.SetActive(false); // Deactivate the joystick panel
@@ -83,24 +83,24 @@ public class GameManager : MonoBehaviour
 
         tmpComponent = victoryScene.GetComponentInChildren<TextMeshProUGUI>();
     }
-    void LoseHandler()
+    private void LoseHandler()
     {
         Debug.Log("lose");
         joystickPanel.SetActive(false); // Deactivate the joystick panel
         loseScene.SetActive(true);      // Activate the lose scene
     }
 
-    public void RestartBtn()
+    private void RestartBtn()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // Reload the current scene
     }
 
-    public void StartBtn()
+    private void StartBtn()
     {
         OnPlayTurn?.Invoke();   // Transition to PlayTurn state
     }
 
-    public void NextScene()
+    private void NextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;

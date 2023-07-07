@@ -5,17 +5,17 @@ using TMPro;
 
 public class EnemyController : MonoBehaviour
 {
-    public int enemyLevel;
-    public float attackAnimTime = 1f;
-    public ParticleSystem DieP;
-    public float speed = 2f;
-    public WayPoints path;
+    [SerializeField] private WayPoints path;
 
+    private float speed = 2f;
     private TextMeshPro tmpComponent;
     private Animator animator;
     private Transform target;
     private int wayPointIndex = 0;
 
+    public int enemyLevel;
+    public ParticleSystem DieP;
+    //public float attackAnimTime = 1f;
 
     private void Start()
     {

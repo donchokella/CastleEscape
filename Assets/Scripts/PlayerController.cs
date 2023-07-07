@@ -9,13 +9,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private float moveSpeed;
 
-    public Animator animator;
-    public float attackAnimTime = 0.5f;
-    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; // Observer
-    public ParticleSystem DieP, CollectBookP, VictoryP; // Observer
-
-    public int playerLevel;
+    private Animator animator;
     private TextMeshPro tmpComponent;
+    private float attackAnimTime = 0.5f;
+
+    public int playerLevel {get; private set;}
+
+    public AudioSource Kill, Die, CollectBook, CollectKey, UnlockedDoor, Victory; // Observer  ???
+    public ParticleSystem DieP, CollectBookP, VictoryP; // Observer ???
 
     public event System.Action OnVictory;
     public event System.Action OnLose;
